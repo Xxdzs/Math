@@ -1,0 +1,46 @@
+\usepackage[french]{babel}
+
+% ---== Standard packages ==---
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+% ---== Extra packages ==---
+\usepackage{stmaryrd}
+\usepackage{relsize}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+% symmetry symetrie
+% personal personnel
+
+% ---== Personal aliases ==---
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\B}{\ensuremath{\mathcal{B}}}
+\newcommand{\A}{\ensuremath{\mathscr{A}}}
+\newcommand{\Sn}{\ensuremath{\mathfrak{S}_{n}}}
+
+% ---== Theorems ==--- 
+\newtheorem{theorem}{Th\'eoreme}
+\theoremstyle{definition}
+\newtheorem{defn}{D\'efinition}
+\newtheorem{prop}{Proposition}
+\theoremstyle{remark}
+\newtheorem{rem}{Remarque}
+\newtheorem{exmpl}{Exemple}
+
+\DeclareMathOperator{\Det}{det}
+
+% ---== Personal commands ==---
+\newcommand{\either}[3]{\ensuremath{\left#1\begin{matrix}#2\\#3\end{matrix}\right.}}
+\newcommand{\fun}[5]{\ensuremath{
+	\begin{matrix}
+		#1 :	& #2 & \to		& #3 \\
+				& #4 & \mapsto	& #1(#4) = #5
+	\end{matrix}
+}}

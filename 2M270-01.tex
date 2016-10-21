@@ -1,0 +1,113 @@
+\documentclass[12pt,a4paper,final]{article}
+
+\input{Preambule}
+
+\author{Vincent Humili\`ere}
+\title{Formes $n$-lin\'eaires antisym\'etriques\\sur un espace de dimension $n$}
+
+\begin{document}
+	\maketitle
+	\noindent
+	Soit $n \in \N$, \\
+	\phantom{Soit} $E$ un \K -espace vectoriel de dimension $n$, \\
+	\phantom{Soit} $\B = (e_1, ..., e_n)$ une base de E, \\
+	\phantom{Soit} $\alpha : E^n \to \K$ une forme $n$-lin\'eaire antisym\'etrique.
+
+	\section*{Rappels}
+		\subsection*{$\alpha$ est $n$-lin\'eaire :}
+			\[ \forall (a, b, c_1, ..., c_{n-1}) \in E^{n+1}, \forall \lambda \in \K, \]
+			\[
+				\alpha(c_1, ..., \lambda a+b, ..., c_{n-1})
+				= \lambda \alpha(c_1, ..., a, ..., c_{n-1})
+				+ \alpha(c_1, ..., b, ..., c_{n-1})
+			\]
+		\subsection*{$\alpha$ est antisym\'etrique :}
+			\[ \forall (a_1, ..., a_n) \in E^n, 1 \leqslant i, j \leqslant n, i \neq j\]
+			\[ \alpha(a_1, ..., a_j, ..., a_i, ..., a_n) = -\alpha(a_1, ..., a_i, ..., a_j, ..., a_n)\]
+
+	\newpage
+	\noindent
+	Soit $(v_1, ..., v_n) \in E^n$, \\
+	On note, $\forall i \in \llbracket 1, n \rrbracket, v_i = \sum\limits_{j=1}^n v_{ij}e_j$
+	\begin{align*}
+		\alpha(v_1, ..., v_n)
+			&= \alpha(\sum_{j=1}^nv_{1j}e_j, v_2, ..., v_n) \\
+		\text{\tiny{(Lin\'earit\'e pour $v_1$)}}
+			&= \sum_{j=1}^nv_{1j}\alpha(e_j, v_2, ..., v_n) \\
+		&= \sum_{j=1}^nv_{1j}\alpha(e_j, \sum_{k=1}^nv_{2k}e_k, v_3, ..., v_n) \\
+		\text{\tiny{(Lin\'earit\'e pour $v_2$)}}
+			&= \sum_{j=1}^n\sum_{k=1}^nv_{1j}v_{2k}\alpha(e_j, e_k, v_3, ..., v_n) \\
+		\text{On note} j_1, j_2, j_3, & \ldots \text{ au lieu de } j, k, l \ldots \\
+		\sum_{j_1=1}^n\sum_{j_2=1}^nv_{1j_1}v_{2j_2}\alpha(e_{j_1}, e_{j_2}, v_3, ..., v_n)
+			&= \sum_{j_1=1}^n\ldots\sum_{j_n=1}^nv_{1j_1}\ldots v_{nj_n}\alpha(e_{j_1}, ..., e_{j_n})
+	\end{align*}
+	Or $\alpha$ est antisym\'etrique, donc $\alpha(e_{j_1}, ..., e_{j_n}) = 0$ s'il existe deux $j_k$ et $j_l$ \'egaux.
+	Donc $\alpha(e_{j_1}, \ldots)$ ne peut \^etre non nul que si tous les $j_k$ sont distincts, \\
+	\textit{i.e.} si
+	$\begin{matrix}
+		\{1, ..., n\} & \to & \{1, ..., n\} \\
+		i & \mapsto & j_i
+	\end{matrix}$
+	est une bijection.
+	\begin{align*}
+		\text{Donc } \alpha(v_1, ..., v_n)
+			&= \sum_{\underset{\underset{\text{une bijection}}{\text{o\`u }
+			i\mapsto j_i \text{ est}}}{j_1, ..., j_n = 1}}^n
+			v_{1j_1} \ldots v_{nj_n} \alpha(e_{j_1}, ..., e_{j_n}) \\
+		&= \sum_{\sigma \in \Sn}v_{1\sigma(1)} \ldots v_{n\sigma(n)}
+			\alpha(e_{\sigma(1)}, ..., e_{\sigma(n)})
+	\end{align*}
+	Ainsi, puisque $\alpha$ est antisym\'etrique,
+	\begin{equation} \label{eq:1}
+		\boxed{
+			\alpha(v_1, ..., v_n) =
+			\left( \sum_{\sigma\in\Sn}\varepsilon(\sigma)v_{1\sigma(1)} \ldots v_{n\sigma(n)} \right)
+			\alpha(e_1, ..., e_n)
+		}
+	\end{equation}
+	\newpage
+	\begin{defn}
+		On appelle d\'eterminant des vecteurs $v_1, ..., v_n$ dans la base $\B=(e_1, ..., e_n)$ le scalaire
+		\[ \Det_\B (v_1, ..., v_n) = \sum_{\sigma\in\Sn}\varepsilon(\sigma)v_{1\sigma(1)} \ldots v_{n\sigma(n)} \]
+	\end{defn}
+	\begin{prop}
+		Pour toute forme $n$-lin\'eaire $\alpha$ sur $E$ (o\`u dim$(E) = n$)
+		il existe un scalaire $\lambda \in \K$ tel que $\alpha=\lambda\Det_\B$. \\
+		De plus $\lambda=\alpha(\B)$.
+	\end{prop}
+	\begin{proof}
+		En effet
+		\[ \alpha(v_1, ..., v_n) = \underbrace{\alpha(e_1, ..., e_n)}_{\alpha(\B)}\Det_\B(v_1, ..., v_n) \]
+		d'apr\`es l'\'equation (\ref{eq:1}).
+	\end{proof}
+	\begin{prop}
+		$\Det_\B$ est $n$-lin\'eaire antisym\'etrique.
+	\end{prop}
+	\begin{proof}
+		Sera faite la fois prochaine.
+	\end{proof}
+	\begin{prop}
+		Soit $\B, \B'$ deux bases de $E$\\
+		Pour tous vecteurs $v_1, ..., v_n$ dans $E$,
+		\[ \Det_{\B'}(v_1, ..., v_n) = \Det_{\B'}(\B) \Det_\B(v_1, ..., v_n)\]
+	\end{prop}
+	\section*{Interpr\'etation g\'eom\'etrique}
+		\subsection*{Dans $\R^2$}
+			\noindent
+			$\B_0 = (e_1, e_2)$ base canonique, \\
+			$u,v,u_1,u_2 \in \R^2$, \\
+			$\A(u, v)$ l'aire orient\'ee du parall\`elogramme engendr\'e par $u$ et $v$.
+			\begin{align*}
+				\A(v,u)				&= -\A(u,v) \\
+				\A(u_1+u_2)			&= \A(u_1,v)+\A(u_2,v) \\
+				\A(\lambda u, v)	&= \lambda\A(u,v)
+			\end{align*}
+			Donc \A est une forme bilin\'eaire antisym\'etrique, \\
+			donc \A est un multiple du d\'eterminant.
+			\[ \A(u,v) = \A(e_1,e_2)\Det_{\B_0}(u,v) \]
+			Or $\A(e_1, e_2)=1$, d'o\`u :
+			\[\boxed{
+				\A(u,v) = \Det_{\B_0}(u,v)
+			}\]
+		\subsection*{De m\^eme dans $\R^3$}
+\end{document}
