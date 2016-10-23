@@ -34,10 +34,17 @@
 \newtheorem{rem}{Remarque}
 \newtheorem{exmpl}{Exemple}
 
+% ---== Edits ==---
 \DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\id}{Id}
+\renewcommand{\thesubsection}{\arabic{subsection}}
 
 % ---== Personal commands ==---
+\newcommand{\gen}[1]{\ensuremath{\langle#1\rangle}}
 \newcommand{\either}[3]{\ensuremath{\left#1\begin{matrix}#2\\#3\end{matrix}\right.}}
+\newcommand{\eucldiv}[4]{\ensuremath{
+	\exists(#3,#4)\in\Z\times\N,\either\{{#1 = #2 #3 + #4}{0\leqslant #4 < #2}
+}}
 \newcommand{\fun}[5]{\ensuremath{
 	\begin{matrix}
 		#1 :	& #2 & \to		& #3 \\

@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper,final]{article}
+
+\input{Preambule}
+
+\author{Antoine Ducros}
+\title{Groupes et morphismes}
+
+\begin{document}
+	\maketitle
+%	\tableofcontents
+%	\newpage
+	\section{Exemples de sous-groupes}
+		\subsection{Sous-groupes de $\mathfrak{S}_4$}
+			\begin{enumerate}
+			\item Soit $K$ le sous-ensemble $\{\id, (12)(34), (13)(24), (14)(23) \}$.
+				C'est un sous-groupe de $(\mathfrak{S}_4, \circ)$ :
+				\begin{description}
+					\item[Non vide et \'el\'ement neutre] $\id\in K$
+					\item[Loi interne] $K$ est stable par produit, en effet
+						\begin{align*}
+							&\forall \sigma \in K, \sigma^2 = \id \\
+							(12)(34)\circ(13)(24) &= (13)(24)\circ(12)(34) = (14)(23) \\
+							(12)(34)\circ(14)(23) &= (14)(23)\circ(12)(34) = (13)(24) \\
+							(13)(24)\circ(14)(23) &= (14)(23)\circ(13)(24) = (12)(34)
+						\end{align*}
+				\end{description}
+			\item Le sous-groupe engendr\'e par $(12)$ est $\{(12)^n / n\in\N\}$.
+				Or $(12)^2=\id$ donc
+				\[ \gen{(12)} ~ =\{\id, (12)\} \]
+			\item On sait que $(1234)^4=\id$, donc
+			\begin{align*}
+				\gen{(1234)} &= \{ \id, (1234), (1234)^2 , (1234)^3 \} \\
+				(1234)^3 &= (1234)^{-1} = (4321) \\
+				(1234)^2 &=
+					\left(\begin{matrix}
+						1~2~3~4 \\
+						3~4~1~2
+					\end{matrix}\right)
+					= (13)(24)
+			\end{align*}
+			Le groupe est donc :
+			\[ \gen{(1234)} = \{\id,(1234),(13)(24),(4321)\} \]
+			\end{enumerate}
+		\subsection{Sous-groupes de \Z}
+			Soit $d\in\Z, \gen{d}=\{nd|n\in\Z\}$ (notation additive) On le note $d\Z$
+		\begin{theorem}
+			Tout sous-groupe de \Z~est de la forme $d\Z$, pour un unique $d\in\N$
+		\end{theorem}
+		\begin{proof}
+			Soit $G$ un sous-groupe de $\Z$. Montrons qu'il existe $d\in\N$, tel que $G=d\Z$.
+			\begin{description}
+				\item[Existence] On distingue deux cas
+				\begin{itemize}
+					\item[•] Si $G=\{0\}, G=0\Z : d\leftarrow0$ convient.
+					\item[•] Si $G$ est non trivial, il existe $g\neq0$ dans $G$, avec $-g\in G$.
+						$G$ contient donc au moins un \'el\'ement strictement positif, d'o\`u
+						$G\cap\N^*$  est une partie non vide de \N, donc elle admet un plus petit \'el\'ement $d$.
+						$d\in G \Rightarrow \gen{d}\subset G$. Nous allons \'etablir l'inclusion r\'eciproque.
+
+						Soit $g\in G$, effectuons la division euclidienne de $g$ par $d$ :
+						\[ \eucldiv gdqr \]
+						\[ \Rightarrow r = \underbrace{dq}_{\in d\Z \subset G}  \underbrace{-g}_{\in G} \in G \]
+						\[ \left. \begin{matrix}
+								0 \leqslant r < d \\
+								r \in G \\
+								d=\min ( G \cap \N^* )
+							\end{matrix} \right\}
+							\Rightarrow r = 0 \Rightarrow g = dq
+						\]
+						Ainsi $G \subset d\Z$. \\
+						On a donc bien $G=d\Z$
+				\end{itemize}
+				\item[Unicit\'e]
+					Soit $d,d'\in\N$, tels que $d\Z=d'\Z$
+					\begin{itemize}
+						Si $d=0$ alors $d\Z=0$ donc $d'\Z=0$ donc $d'=0$ car $d'=d'\times1\in d'\Z$
+					\end{itemize}
+			\end{description}
+		\end{proof}
+		
+\end{document}
